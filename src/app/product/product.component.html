@@ -1,0 +1,41 @@
+<div>
+  <div class="breadcrumb">
+    <div class="container">
+      <h2>
+        <a href="">首页</a>&gt;<a href="">产品中心</a>
+      </h2>
+    </div>
+  </div>
+  <div class="main container">
+    <div class="pl_header">
+      <a (click)="setType(true)" [ngClass]="{'cur': type==1}">净美仕净化器</a>
+      <a (click)="setType(false)" [ngClass]="{'cur': type==2}">净美仕滤网</a>
+    </div>
+    <!-- 产品列表-->
+    <ul class="product_list clearfloat">
+      <ng-container>
+          <li *ngFor="let item of ProductList">
+              <a (click)="goProducteDetails(item.pid)">
+                <img [src]="url" [src]="urls+item.pic" alt="">
+              </a>
+              <div class="pdlist_text clearfloat">
+                <h3>
+                  <p>{{item.model}}</p><span>{{item.title1}}</span>
+                </h3><a>查看详情</a>
+              </div>
+          </li>
+      </ng-container>
+    </ul>
+    <!-- 分页导航-->
+    <div class="pages">
+        <a (click)="handleClick(false,$event)" href="prev"
+        [ngClass]="{'default': pageNum==1}">上一页</a>
+        <a (click)="setPage(item,$event)"
+            *ngFor="let item of pageSize"
+            [ngClass]="{'cur': item==pageNum}"
+            >{{item}}</a>
+        <a (click)="handleClick(true,$event)" href="next"
+        [ngClass]="{'default': pageNum==pageSize.length}">下一页</a>
+    </div>
+  </div>
+</div>

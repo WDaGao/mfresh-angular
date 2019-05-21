@@ -1,0 +1,50 @@
+<div>
+  <div class="breadcrumb">
+    <div class="container">
+      <h2>
+        <a href="">首页</a>&gt;<a href="">产品中心</a>
+      </h2>
+    </div>
+  </div>
+  <div class="main container">
+    <div class="cart">
+      <!-- <div class="cart_header">
+        <span>已选商品<em>2</em>件</span>
+        <span>总金额：<strong>2499.00</strong></span>
+        <button type="button">结算</button>
+      </div> -->
+      <div class="cart_con">
+        <div class="cartcon_title">
+          <span><input type="checkbox"> 全选</span>
+          <span>商品信息</span>
+          <span>单价</span>
+          <span>数量</span>
+          <span>金额</span>
+          <span>操作</span>
+        </div>
+        <ul>
+          <h2 *ngIf="CartList.length==0">购物车中没有任何商品！</h2>
+          <li *ngFor="let item of CartList;let i=index">
+            <input type="checkbox" class="cart_checkbox"/>
+            <a href="" class="cart_img">
+              <img [src]="urls+item.pic" alt=""/></a>
+            <a href="" class="cart_title">{{item.title1}}</a>
+            <i>¥{{item.price}}</i>
+            <div>
+              <span (click)="countCart(true,i,item.did,item.pid)">-</span>
+                <input type="text" [value]="item.count"/>
+              <span (click)="countCart(false,i,item.did,item.pid)">+</span>
+            </div>
+            <strong>¥{{item.price*item.count}}.00</strong>
+            <em (click)="deleteCart(item.did)"></em>
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="CartList.length!=0" class="cart_header">
+        <span>已选商品<em>2</em>件</span>
+        <span>总金额：<strong>2499.00</strong></span>
+        <button type="button">结算</button>
+      </div>
+    </div>
+  </div>
+</div>

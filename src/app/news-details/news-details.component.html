@@ -1,0 +1,18 @@
+<div>
+  <div class="breadcrumb">
+    <div class="container">
+      <h2>
+        <a href="">首页</a>&gt;
+        <a [routerLink]="[ '/index/news', 1 ]">公司动态</a>
+      </h2>
+    </div>
+  </div>
+  <div class="main container">
+    <div class="news_details">
+      <h2>{{data.title}}</h2>
+      <span>发布时间：{{data.pubTime | date:'yyyy-MM-dd'}}</span>
+      <div id="news_content" class="news_content">
+      </div>
+    </div>
+  </div>
+</div>
